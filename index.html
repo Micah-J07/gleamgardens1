@@ -9,47 +9,135 @@
 <title>Gleam Gardens</title>
 </head>
 <h1>Contact Us</h1>
-<form action="https://postmail.invotes.com/send"
-    method="post" id="email_form">
+<form id="fs-frm" name="department-contact-form" accept-charset="utf-8" action="https://formspree.io/f/xbjqkeap" method="post">
+  <fieldset id="fs-frm-inputs">
+   <h2>Contact Us</h2>
+    <label for="full-name">Full Name*</label>
+    <input type="text" name="name" id="full-name" placeholder="First and Last" required="">
+    <label for="email-address">Email Address*</label>
+    <input type="email" name="_replyto" id="email-address" placeholder="email@domain.tld" required="">
+    <label for="department">Department</label>
+    <select name="department" id="department" required="">
+      <option value="Select" selected="" disabled="">Select</option>
+      <option value="Support">Support</option>
+      <option value="Request a Booking">Request a Booking</option>
+      <option value="Problem with website">Technical support (relating to contact and the website)</option>
+      <option value="Other">Other</option>
+    </select>
+    <label for="message">Message*</label>
+    <textarea rows="5" name="message" id="message" placeholder="Type your message here/specify your issue..." required=""></textarea>
+    <input type="hidden" name="_subject" id="email-subject" value="Department Contact Form Submission">
+  </fieldset>
+  <input type="submit" value="Send Message">
+ <p><i>*Sections marked with an asterick are required.</i></p>
+</form><style>/* reset */
+#fs-frm input,
+#fs-frm select,
+#fs-frm textarea,
+#fs-frm fieldset,
+#fs-frm optgroup,
+#fs-frm label,
+#fs-frm #card-element:disabled {
+  font-family: inherit;
+  font-size: 100%;
+  color: inherit;
+  border: none;
+  border-radius: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+#fs-frm label,
+#fs-frm legend,
+#fs-frm ::placeholder {
+  font-size: .825rem;
+  margin-bottom: .5rem;
+  padding-top: .2rem;
+  display: flex;
+  align-items: baseline;
+}
 
-    <input type="text" name="subject" placeholder="Subject" />
-    <textarea name="text" placeholder="Message"></textarea>
-    <input type="hidden" name="access_token" value="zfc8d6fqhbxswks0msqowq2v" />
-      <!-- return urls can be fully qualified -OR-
-         start with / for root relative -OR-
-         start with . for url relative --> 
-    <input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
-    <input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
-   
+/* border, padding, margin, width */
+#fs-frm input,
+#fs-frm select,
+#fs-frm textarea,
+#fs-frm #card-element {
+  border: 1px solid rgba(0,0,0,0.2);
+  background-color: rgba(255,255,255,0.9);
+  padding: .75em 1rem;
+  margin-bottom: 1.5rem;
+}
+#fs-frm input:focus,
+#fs-frm select:focus,
+#fs-frm textarea:focus {
+  background-color: white;
+  outline-style: solid;
+  outline-width: thin;
+  outline-color: gray;
+  outline-offset: -1px;
+}
+#fs-frm [type="text"],
+#fs-frm [type="email"] {
+  width: 100%;
+}
+#fs-frm [type="button"],
+#fs-frm [type="submit"],
+#fs-frm [type="reset"] {
+  width: auto;
+  cursor: pointer;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+}
+#fs-frm [type="button"]:focus,
+#fs-frm [type="submit"]:focus,
+#fs-frm [type="reset"]:focus {
+  outline: none;
+}
+#fs-frm [type="submit"],
+#fs-frm [type="reset"] {
+  margin-bottom: 0;
+}
+#fs-frm select {
+  text-transform: none;
+}
 
-    <!-- set the reply-to address -->
-    <!-- <input type="text" name="reply_to"
-                placeholder="Your Email" /> -->
+#fs-frm [type="checkbox"] {
+  -webkit-appearance: checkbox;
+  -moz-appearance: checkbox;
+  appearance: checkbox;
+  display: inline-block;
+  width: auto;
+  margin: 0 .5em 0 0 !important;
+}
 
-    <!-- to append extra fields, use the extra_ prefix.
-        Entries will be appended to your message body. -->
-    <!-- <input type="text" name="extra_phone_number"
-                placeholder="Phone Number" /> -->
+#fs-frm [type="radio"] {
+  -webkit-appearance: radio;
+  -moz-appearance: radio;
+  appearance: radio;
+}
 
-    <!-- to split your message into 160 chars
-         for an sms gateway -->
-    <!-- <input type="hidden"
-                name="sms_format" value="true" /> -->
-<p>Please include your name, email and if necessary, your address.</p>
-   
-    <input id="submit_form" type="submit" value="Send" />
-</form>
-     
-<!-- optional, prevents the submit button from being pressed more than once -->
-<script>
-    var submitButton = document.getElementById("submit_form");
-    var form = document.getElementById("email_form");
-    form.addEventListener("submit", function (e) {
-        setTimeout(function() {
-            submitButton.value = "Sending...";
-            submitButton.disabled = true;
-        }, 1);
-    });
-</script> 
+/* address, locale */
+#fs-frm fieldset.locale input[name="city"],
+#fs-frm fieldset.locale select[name="state"],
+#fs-frm fieldset.locale input[name="postal-code"] {
+  display: inline;
+}
+#fs-frm fieldset.locale input[name="city"] {
+  width: 52%;
+}
+#fs-frm fieldset.locale select[name="state"],
+#fs-frm fieldset.locale input[name="postal-code"] {
+  width: 20%;
+}
+#fs-frm fieldset.locale input[name="city"],
+#fs-frm fieldset.locale select[name="state"] {
+  margin-right: 3%;
+}
+</style>
+
 </body>
 </html>
